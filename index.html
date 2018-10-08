@@ -10,10 +10,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <style>
+ h2 {
+color: Violet; 
+}
+span{
+color: black
+}
+</style>
 
 <div class="container">
-  <h2>Me Too India</h2>
-    <table class="table">
+  <h2>MeToo <span>India</span></h2>
+  
+  <input type="text" id="myInput" style = "float:right;" onkeyup="myFunction()" placeholder="Search for a name.." title="Type in a Alleged Person">
+    <table id="myTable" class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -30,7 +40,7 @@
         <td><a href="https://www.news18.com/news/movies/rajat-kapoor-accused-of-sexual-misconduct-actor-issues-apology-after-allegations-1901907.html" target="_blank">source</a></td>
       </tr>      
       <tr class="table-primary">
-          <th scope="row">2</th>
+        <th scope="row">2</th>
         <td><a href="https://twitter.com/nanagpatekar?lang=en" target="_blank">Nana Patekar</td>
         <td>Actor</td>
         <td><a href="https://www.news18.com/news/movies/tanushree-dutta-files-police-complaint-accusing-nana-patekar-of-sexual-harassment-1900985.html" target="_blank">source</td>
@@ -169,6 +179,25 @@
     </tbody>
   </table>
 </div>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 </body>
 </html>
